@@ -5,7 +5,12 @@ server.listen(process.env.port ||process.env.PORT || 3978,function(){
     console.log('%s listing to %s',server.name,server.url)
 })
 // var connector = new builder.ConsoleConnector().listen();
-var connector = new builder.ChatConnector();
+var appId = "322fa2dc-b00f-49b1-aac5-6e80b7e170a1"
+var appPassword = "hYEjTf(?32gMnEl0-vFS8J;KB"
+var connector = new builder.ChatConnector({
+    appId:appId,
+    appPassword:appPassword
+});
 server.post('/api/messages',connector.listen());
 
 var bot = new builder.UniversalBot(connector);
